@@ -1,12 +1,12 @@
 ---
- - name: Create a login user
+ - name: Create a login user {{ user_name }}
    user:
-      name: simar
-      password: 'simar'
+      name: "{{ user_name }}"
+      password: '{{ user_name }}'
       groups:
        - root
       state: present
       shell: /bin/bash       # Defaults to /bin/bash
       system: no             # Defaults to no
       createhome: yes        # Defaults to yes
-      home: /home/simar  # Defaults to /home/<username>
+      home: /home/{{ user_name }}  # Defaults to /home/<username>
